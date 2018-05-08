@@ -154,8 +154,8 @@
 <wire x1="3.6" y1="-2.2" x2="3.6" y2="3.4" width="0.127" layer="21"/>
 <wire x1="3.6" y1="3.4" x2="-3.4" y2="3.4" width="0.127" layer="21"/>
 <wire x1="-3.4" y1="-2.2" x2="3.6" y2="-2.2" width="0.127" layer="21"/>
-<pad name="1" x="1.8" y="0" drill="1" diameter="2.1844"/>
-<pad name="2" x="-1.7" y="0" drill="1" diameter="2.1844"/>
+<pad name="1" x="1.8" y="0" drill="1.3" diameter="2.54"/>
+<pad name="2" x="-1.7" y="0" drill="1.3" diameter="2.54"/>
 <text x="3" y="5" size="1.27" layer="25" rot="R180">&gt;NAME</text>
 </package>
 <package name="1206">
@@ -10931,6 +10931,54 @@ Wickmann</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="keystone">
+<packages>
+<package name="3568">
+<pad name="2" x="-4.953" y="-1.7018" drill="1.6002" shape="square"/>
+<pad name="4" x="4.953" y="-1.7018" drill="1.6002" shape="square"/>
+<pad name="1" x="-4.953" y="1.7018" drill="1.6002" shape="square"/>
+<pad name="3" x="4.953" y="1.7018" drill="1.6002" shape="square"/>
+<wire x1="-7.874" y1="-3.4544" x2="8.0264" y2="-3.4544" width="0.127" layer="21"/>
+<wire x1="8.0264" y1="-3.4544" x2="8.0264" y2="3.3528" width="0.127" layer="21"/>
+<wire x1="8.0264" y1="3.3528" x2="-7.874" y2="3.3528" width="0.127" layer="21"/>
+<wire x1="-7.874" y1="3.3528" x2="-7.874" y2="-3.4544" width="0.127" layer="21"/>
+<text x="-7.8994" y="3.7846" size="1.27" layer="25">&gt;NAME </text>
+<text x="-0.1778" y="3.8862" size="1.27" layer="27">&gt;VALUE</text>
+</package>
+</packages>
+<symbols>
+<symbol name="3568">
+<wire x1="-3.81" y1="-0.762" x2="3.81" y2="-0.762" width="0.254" layer="94"/>
+<wire x1="3.81" y1="0.762" x2="-3.81" y2="0.762" width="0.254" layer="94"/>
+<wire x1="3.81" y1="-0.762" x2="3.81" y2="0.762" width="0.254" layer="94"/>
+<wire x1="-3.81" y1="0.762" x2="-3.81" y2="-0.762" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="0" x2="2.54" y2="0" width="0.1524" layer="94"/>
+<text x="-3.81" y="1.397" size="1.778" layer="95">&gt;NAME</text>
+<text x="-3.81" y="-2.921" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="2" x="5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="1" x="-5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="3568" prefix="F">
+<description>Mini ATC Fuse Holder 20A 500V 1 Circuit Blade PCB</description>
+<gates>
+<gate name="G$1" symbol="3568" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="3568">
+<connects>
+<connect gate="G$1" pin="1" pad="1 2"/>
+<connect gate="G$1" pin="2" pad="3 4"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -10939,7 +10987,7 @@ Wickmann</description>
 <classes>
 <class number="0" name="default" width="0" drill="0">
 </class>
-<class number="1" name="12V_PWR" width="2.159" drill="0">
+<class number="1" name="12V_PWR" width="1.778" drill="0">
 </class>
 <class number="2" name="5V_LDO" width="0.3048" drill="0">
 </class>
@@ -10978,11 +11026,15 @@ Wickmann</description>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
 <part name="C9" library="rcl" deviceset="C-US" device="025-050X050" value="0.1 uF"/>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
-<part name="M1_FUSE" library="fuse" deviceset="FUSE" device="LITTLEFUSE" value="FUSELITTLEFUSE"/>
-<part name="M2_FUSE" library="fuse" deviceset="FUSE" device="LITTLEFUSE" value="FUSELITTLEFUSE"/>
+<part name="M1_FUSE" library="fuse" deviceset="FUSE" device="TE5" value="FUSETE5"/>
+<part name="M2_FUSE" library="fuse" deviceset="FUSE" device="TE5" value="FUSETE5"/>
 <part name="M2_PWR" library="adafruit" deviceset="1X2" device="-3.5MM"/>
 <part name="5V_OUT" library="adafruit" deviceset="1X2" device="-3.5MM"/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
+<part name="12V_PASS2" library="adafruit" deviceset="1X2" device="-3.5MM"/>
+<part name="12V_PASS1" library="adafruit" deviceset="1X2" device="-3.5MM"/>
+<part name="12V_FUSE" library="keystone" deviceset="3568" device="" value="3568"/>
+<part name="GND4" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -10996,6 +11048,7 @@ screw terminal for connecting
 to the motor driver</text>
 <text x="-5.08" y="-12.7" size="1.778" layer="91">These screw terminals connect each motor to the motor driver</text>
 <text x="-17.78" y="-68.58" size="1.778" layer="91">The motors connect to the above 6-pin headers</text>
+<text x="43.18" y="20.32" size="1.778" layer="91">12V pass through</text>
 </plain>
 <instances>
 <instance part="J2" gate="G$1" x="-104.14" y="5.08"/>
@@ -11050,6 +11103,12 @@ to the motor driver</text>
 <instance part="M2_PWR" gate="G$1" x="48.26" y="-20.32" rot="R90"/>
 <instance part="5V_OUT" gate="G$1" x="-55.88" y="-33.02" rot="R90"/>
 <instance part="GND2" gate="1" x="-58.42" y="-40.64"/>
+<instance part="12V_PASS2" gate="G$1" x="45.72" y="12.7" rot="R90"/>
+<instance part="12V_PASS1" gate="G$1" x="66.04" y="12.7" rot="R90"/>
+<instance part="12V_FUSE" gate="G$1" x="43.18" y="0" smashed="yes" rot="R270">
+<attribute name="NAME" x="39.497" y="8.89" size="1.778" layer="95" rot="R270"/>
+</instance>
+<instance part="GND4" gate="1" x="71.12" y="-2.54"/>
 </instances>
 <busses>
 </busses>
@@ -11143,6 +11202,16 @@ to the motor driver</text>
 <segment>
 <pinref part="5V_OUT" gate="G$1" pin="1"/>
 <pinref part="GND2" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="12V_PASS2" gate="G$1" pin="2"/>
+<wire x1="45.72" y1="7.62" x2="45.72" y2="0" width="0.1524" layer="91"/>
+<pinref part="12V_PASS1" gate="G$1" pin="2"/>
+<wire x1="45.72" y1="0" x2="66.04" y2="0" width="0.1524" layer="91"/>
+<wire x1="66.04" y1="0" x2="66.04" y2="7.62" width="0.1524" layer="91"/>
+<pinref part="GND4" gate="1" pin="GND"/>
+<wire x1="71.12" y1="0" x2="66.04" y2="0" width="0.1524" layer="91"/>
+<junction x="66.04" y="0"/>
 </segment>
 </net>
 <net name="MEGASDA" class="0">
@@ -11387,6 +11456,21 @@ to the motor driver</text>
 <pinref part="M1_PWR" gate="G$1" pin="1"/>
 <pinref part="M1_FUSE" gate="G$1" pin="1"/>
 <wire x1="-5.08" y1="-27.94" x2="-5.08" y2="-30.48" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="12V_PASSTHRU1" class="0">
+<segment>
+<pinref part="12V_PASS2" gate="G$1" pin="1"/>
+<pinref part="12V_FUSE" gate="G$1" pin="1"/>
+<wire x1="43.18" y1="5.08" x2="43.18" y2="7.62" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="12V_PASSTHRU2" class="0">
+<segment>
+<pinref part="12V_PASS1" gate="G$1" pin="1"/>
+<wire x1="63.5" y1="7.62" x2="63.5" y2="-5.08" width="0.1524" layer="91"/>
+<pinref part="12V_FUSE" gate="G$1" pin="2"/>
+<wire x1="63.5" y1="-5.08" x2="43.18" y2="-5.08" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
