@@ -1,7 +1,7 @@
 Arduino shield for CaBot
 =============================
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "PCB")
-This shield fits on top of an Arduino mega. It provides breakouts for the sensors listed below, and fuses to protect the motor driver and motors. The PCB can be connected to a L298 motor driver or a Sabertooth 2x12 motor driver.
+![alt text](https://github.com/RealCabot/simplePCB/blob/master/PCB_layout.PNG "PCB")
+This shield fits on top of an Arduino Mega. It provides breakouts for the sensors listed below, and fuses to protect the motor driver and motors. The PCB can be connected to a [L298 motor driver](https://solarbotics.com/product/k_cmd/) or a [Sabertooth 2x12 motor driver](https://www.dimensionengineering.com/products/sabertooth2x12).
 
 **Parts list:**
 See Excel file: "simple_component_list.xlsx"
@@ -16,6 +16,7 @@ See Excel file: "simple_component_list.xlsx"
 3) GND <---> GND on motor driver (this should be common GND)
 4) 12V <---> 12V power supply
 5) GND <---> GND of 12V power supply (this should be common GND)
+
 **If the motors are running the wrong direction, reverse the polarity**
 
 **Known Issues**
